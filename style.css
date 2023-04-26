@@ -1,0 +1,374 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+.navbar {
+    position: absolute;
+    width: 100%;
+    padding: 50px 0;
+    z-index: 999;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navbar ul li {
+    list-style: none;
+}
+
+.navbar ul li a {
+    display: block;
+    margin: 0 5px;
+    padding: 15px;
+    color: orangered;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    opacity: 0;
+    animation: fadeInUp 0.5s linear forwards;
+    animation-delay: calc(0.3s *var(--index));
+}
+
+.navbar ul li a:not(.btn):hover {
+    color: navy;
+}
+
+.navbar ul li .btn {
+    padding: 15px 30px;
+    color: wheat;
+    background: linear-gradient(to right, orangered 0%, navy 50%, wheat 100%);
+    background-size: 200%;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(187, 103, 7, 0.11);
+}
+
+.navbar ul li .btn:hover {
+    background-position: right center;
+}
+
+.toggle-btn{
+    display: none;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background-color: navy;
+    float: right;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.toggle-btn .bar {
+    width: 25px;
+    height: 3px;
+    background-color: orangered;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.toggle-btn .bar::before,
+.toggle-btn .bar::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: orangered;
+    position: absolute;
+}
+
+.toggle-btn .bar::before {
+    top: -8px;
+}
+
+.toggle-btn .bar::after {
+    top: 8px;
+}
+
+.toggle-btn.active .bar { 
+    background-color: transparent;
+}
+
+.toggle-btn.active .bar::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.toggle-btn.active .bar::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px;
+    background-image: url(images/katerina-kerdi-TAfqq1B3-2s-unsplash-removebg-preview.png);
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-color: wheat;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.5s linear forwards;
+}
+
+.hero-container .mosque {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: all 0.3s;
+}
+
+.hero-content {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    padding-top: 40px;
+}
+
+.hero-content {
+    margin-bottom: 30px;
+    color: navy;
+    font-size: 50px;
+    font-weight: 900;
+    text-transform:capitalize;
+    line-height: 40px;
+}
+
+.hero-container h2 {
+    margin-bottom:30px ;
+    color: orangered;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 80px;
+    opacity: 0;
+    animation: fadeInUp 0.5s linear 2s forwards;
+}
+
+.hero-content p {
+    margin-bottom: 10px;
+    color: navy;
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeInUp 0.5s linear 2.5s forwards;
+}
+
+.hero-content .btn {
+    display: inline-block;
+    padding: 15px 40px;
+    color: wheat;
+    background: linear-gradient(to right, orangered 0%, navy 50%, wheat 100%);
+    background-size: 200% ;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: capitalize;
+    box-shadow: 0 4px 6px rgba(187, 103, 7, 0.11);
+    transition: all 0.3s;
+    opacity: 0;
+    animation: fadeInUp 0.5s linear 3s forwards;
+}
+
+.hero-content .btn:hover {
+    background-position: right center;
+}
+
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 900px;
+    }
+
+    .navbar .container ul {
+        display: none;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+
+    .navbar ul.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 99;
+    }
+
+    .navbar ul li a {
+        margin: 10px 0;
+    }
+
+    .hero-container {
+        padding: 20px;
+        /* background-image: none;
+        background-color: white; */
+    }
+
+    .mosque {
+        opacity: 0.6;
+    }
+
+    .hero-content h2 {
+        color: navy;
+        font-size: 60px;
+    }
+
+    .hero-content p {
+        color: navy;
+    }
+}
+
+@media(max-width: 550px){
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content h2 {
+        font-size: 50px;
+        line-height: 50px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-content .btn {
+        font-size: 16px;
+    }
+}
+
+/* create animation */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
