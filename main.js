@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    const searchInput = document.querySelector("#searchInput");
-    searchInput.addEventListener("keyup", searchProducts);
+    const searchBtn = document.querySelector("#searchBtn");
+    searchBtn.addEventListener("click", searchProducts);
 
     function searchProducts() {
       const searchTerm = document.querySelector("#searchInput").value.toLowerCase();
