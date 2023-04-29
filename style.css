@@ -241,6 +241,22 @@ body {
     background-position: right center;
 }
 
+.searchSection {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.searchSection > input {
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.searchSection > button {
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
 
 @media (max-width: 992px) {
     .container {

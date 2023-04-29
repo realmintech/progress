@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (brand.includes(searchTerm)) {
           cards[i].style.display = "block";
         } else {
-          cards[i].style.display = "No such item in our store.";
+          cards[i].style.display = "none";
         }
       }
     }  
