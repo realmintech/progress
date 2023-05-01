@@ -40,19 +40,41 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    const searchBtn = document.querySelector("#searchBtn");
-    searchBtn.addEventListener("click", searchProducts);
-
-    function searchProducts() {
-      const searchTerm = document.querySelector("#searchInput").value.toLowerCase();
-      const cards = document.querySelectorAll(".card");
     
-      for (let i = 0; i < cards.length; i++) {
-        const brand = cards[i].querySelector("h4").textContent.toLowerCase();
-        if (brand.includes(searchTerm)) {
-          cards[i].style.display = "block";
-        } else {
-          cards[i].style.display = "none";
-        }
-      }
-    }  
+const searchBtn = document.querySelector("#searchBtn");
+searchBtn.addEventListener("click", searchProducts);
+
+function searchProducts() {
+  const searchTerm = document.querySelector("#searchInput").value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+
+  const filteredCards = Array.from(cards).filter(card => {
+    const brand = card.querySelector("h4").textContent.toLowerCase();
+    return brand.includes(searchTerm);
+  });
+
+  cards.forEach(card => {
+    if (filteredCards.includes(card)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+    // const searchBtn = document.querySelector("#searchBtn");
+    // searchBtn.addEventListener("click", searchProducts);
+
+    // function searchProducts() {
+    //   const searchTerm = document.querySelector("#searchInput").value.toLowerCase();
+    //   const cards = document.querySelectorAll(".card");
+    
+    //   for (let i = 0; i < cards.length; i++) {
+    //     const brand = cards[i].querySelector("h4").textContent.toLowerCase();
+    //     if (brand.includes(searchTerm)) {
+    //       cards[i].style.display = "block";
+    //     } else {
+    //       cards[i].style.display = "none";
+    //     }
+    //   }
+    // }  
